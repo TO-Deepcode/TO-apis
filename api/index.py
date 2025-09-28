@@ -61,4 +61,4 @@ async def on_shutdown() -> None:
     await shutdown_http_client()
 
 
-handler = Mangum(app, api_gateway_base_path="/api")
+handler = Mangum(app)
