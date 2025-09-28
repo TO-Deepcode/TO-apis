@@ -96,7 +96,7 @@ class NewsService:
     ) -> NewsFeed:
         response = await client.get(target.url)
         response.raise_for_status()
-        soup = BeautifulSoup(response.text, "lxml")
+        soup = BeautifulSoup(response.text, "html.parser")
         articles = self._extract_articles(soup, target.url, target.name, limit)
         return NewsFeed(
             source=target.name,
