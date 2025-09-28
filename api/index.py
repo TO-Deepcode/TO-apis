@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from fastapi import Depends, FastAPI, Query
-from fastapi.responses import ORJSONResponse
+from fastapi.responses import JSONResponse
 from mangum import Mangum
 
 from fastpi.http_client import shutdown_http_client
@@ -13,7 +13,7 @@ app = FastAPI(
     description=(
         "Aggregated crypto market metrics and curated news feeds built for serverless deployment."
     ),
-    default_response_class=ORJSONResponse,
+    default_response_class=JSONResponse,
 )
 
 
