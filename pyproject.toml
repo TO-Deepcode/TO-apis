@@ -1,0 +1,27 @@
+[project]
+name = "fastpi"
+version = "0.1.0"
+description = "Serverless crypto market and news aggregator for Vercel"
+readme = "README.md"
+authors = [{ name = "FastPI" }]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110.0",
+    "mangum>=0.17.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.2.1",
+    "python-dateutil>=2.8.2",
+    "beautifulsoup4>=4.12.3",
+    "lxml>=5.2.1",
+    "orjson>=3.10.3",
+    "async-lru>=2.0.4"
+]
+
+[project.optional-dependencies]
+dev = [
+    "uvicorn[standard]>=0.29.0",
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.6",
+    "respx>=0.20.2"
+]
