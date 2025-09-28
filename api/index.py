@@ -1,8 +1,15 @@
 from __future__ import annotations
 
+from pathlib import Path
+import sys
+
 from fastapi import Depends, FastAPI, Query
 from fastapi.responses import JSONResponse
 from mangum import Mangum
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.append(str(ROOT_DIR))
 
 from fastpi.http_client import shutdown_http_client
 from fastpi.services import MarketDataService, NewsService
@@ -61,4 +68,4 @@ async def on_shutdown() -> None:
     await shutdown_http_client()
 
 
-handler = Mangum(app)
+handler = Mangum(app, api_gateway_base_path="/api")
